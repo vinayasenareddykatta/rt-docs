@@ -70,6 +70,7 @@ export const updateDocument = async (roomId: string, title: string) => {
     console.log(`Error happened while updating a document: ${e}`);
   }
 };
+
 export const getDocuments = async (email: string) => {
   try {
     const documents = await liveblocks.getRooms({ userId: email });
