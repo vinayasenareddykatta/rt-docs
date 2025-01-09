@@ -6,11 +6,12 @@ import { liveblocks } from "../liveblocks";
 
 export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
   try {
-    // @ts-ignore
-    const { data } = await clerkClient.users.getUserList({
+    const client = await clerkClient();
+    const { data } = await client.users.getUserList({
       emailAddress: userIds,
     });
 
+    console.log(data);
     const users = data.map((user: any) => ({
       id: user.id,
       name: `${user.firstName} ${user.lastName}`,
@@ -47,6 +48,7 @@ export const getDocumentUsers = async ({
       const filteredUsers = users.filter((email: string) =>
         email.toLowerCase().includes(lowerCaseText)
       );
+      console.log({ getusers: text, currentUser });
       return parseStringify(filteredUsers);
     }
     return parseStringify(users);
