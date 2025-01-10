@@ -22,6 +22,7 @@ import Loader from "../Loader";
 import { useSyncStatus, useThreads } from "@liveblocks/react/suspense";
 import FloatingToolbarPlugin from "./plugins/FloatingToolbarPlugin";
 import Comments from "../Comments";
+import { DeleteModal } from "../DeleteModal";
 
 // Catch any errors that occur during Lexical updates and log them
 // or throw them as needed. If you don't throw them, Lexical will
@@ -55,15 +56,11 @@ export function Editor({
   return (
     <LexicalComposer initialConfig={initialConfig}>
       <div className="editor-container size-full">
-        <div className="toolbar-wrapper flex min-w-full justify-between">
+        <div className="toolbar-wrapper flex min-w-full justify-between pr-4">
           <ToolbarPlugin />
-          {/* {currentUserType === "editor" && <DeleteModal roomId={roomId} />} */}
+          {currentUserType === "editor" && <DeleteModal roomId={roomId} />}
         </div>
         <div className="editor-wrapper flex flex-col items-center justify-start ">
-          {/* {status !== "synchronized" ? (
-            // <Loader />
-            <></>
-          ) : ( */}
           <div className="editor-inner min-h-[1100px] relative mb-5 h-fit w-full  max-w-[800px] shadow-md lg:mb-10">
             <RichTextPlugin
               contentEditable={

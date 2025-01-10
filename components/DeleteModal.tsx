@@ -44,7 +44,7 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
             alt="delete"
             width={20}
             height={20}
-            className="mt-1"
+            className="mt-1 mr-4"
           />
         </Button>
       </DialogTrigger>
