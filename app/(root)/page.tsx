@@ -1,10 +1,13 @@
 import AddDocumentBtn from "@/components/AddDocumentBtn";
+import { DeleteModal } from "@/components/DeleteModal";
+
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { getDocuments } from "@/lib/actions/room.actions";
 import { dateConverter } from "@/lib/utils";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
+import { Delete } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -61,7 +64,7 @@ const Home = async () => {
                       </p>
                     </div>
                   </Link>
-                  {/* delete  */}
+                  <DeleteModal roomId={document?.id} />
                 </li>
               );
             })}

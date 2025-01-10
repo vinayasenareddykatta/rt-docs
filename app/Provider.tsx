@@ -25,6 +25,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
           currentUser: clerkUser?.emailAddresses[0].emailAddress!,
           text,
         });
+
         return roomUsers;
       }}
     >
